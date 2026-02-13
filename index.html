@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>You &amp; Me - Valentine</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="bg-gradient"></div>
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <main class="page">
+      <header class="hero">
+        <div class="hero-text">
+          <p class="tiny-label">Happy Valentine</p>
+          <h1 class="hero-title">
+            You &amp; Me
+            <span class="hero-accent">Forever</span>
+          </h1>
+          <p class="hero-subtitle">
+            Sebuah halaman kecil yang penuh cinta, dibuat khusus hanya untuk
+            kamu, dengan sejuta senyum dan jutaan hati yang berterbangan.
+          </p>
+
+          <div class="hero-actions">
+            <button id="openCardBtn" class="btn primary">
+              Buka Kartu Cinta 💌
+            </button>
+            <button id="memoryBtn" class="btn ghost">
+              Buka Dashboard Lagu 🎧
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-photo">
+          <div class="photo-frame">
+            <img src="assets/photobooth.png" alt="Our Valentine Moment" />
+            <span class="photo-caption">My favorite face in the world</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="card-section">
+        <div class="card-3d" id="valentineCard">
+          <div class="card-face card-front">
+            <h2>Untuk Kamu yang Manis 💖</h2>
+            <p>Klik untuk membuka isi hatiku.</p>
+            <div class="card-front-heart">♥</div>
+          </div>
+          <div class="card-face card-back">
+            <h2>Dear You,</h2>
+            <p>
+              Di antara jutaan bintang di langit, kamu adalah satu-satunya yang
+              paling bersinar di mataku.
+            </p>
+            <p>
+              Terima kasih sudah jadi alasan senyumku setiap hari. Hari ini,
+              besok, dan seterusnya, aku ingin terus menulis cerita dengan kamu.
+            </p>
+            <p class="signature">With all my love, <span>You &amp; Me</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="timeline">
+        <h2>Kenangan Manis Kita</h2>
+        <p class="timeline-subtitle">
+          Klik setiap bubble untuk melihat kata-kata manis rahasia 💫
+        </p>
+        <div class="timeline-track" id="timelineTrack">
+          <button class="memory-bubble" data-message="Kamu itu definisi 'cantik tanpa usaha'.">
+            First Time I Saw You
+          </button>
+          <button class="memory-bubble" data-message="Chat sama kamu nggak pernah ngebosenin.">
+            Late Night Chat
+          </button>
+          <button class="memory-bubble" data-message="Tawa kamu, favorit aku.">
+            Your Laugh
+          </button>
+          <button class="memory-bubble" data-message="Kalau lagi bad mood, cukup liat foto kamu.">
+            Bad Day Remedy
+          </button>
+          <button class="memory-bubble" data-message="Future kita? Kita tulis bareng ya.">
+            Our Future
+          </button>
+        </div>
+        <div class="memory-message" id="memoryMessage">
+          Klik salah satu bubble di atas, ya 💗
+        </div>
+      </section>
+
+      <section class="music-dashboard" id="musicDashboard">
+        <div class="music-glow music-glow--one"></div>
+        <div class="music-glow music-glow--two"></div>
+
+        <div class="music-header">
+          <span class="tiny-label">Valentine Soundtrack</span>
+          <h2>Our Love Song Dashboard</h2>
+          <p>
+            Dashboard ini khusus buat lagu kesukaan kita. Sambil dengerin,
+            liat lagi ekspresi lucu kamu di photobooth di samping kanan.
+          </p>
+        </div>
+
+        <div class="music-grid">
+          <div class="song-info">
+            <div class="song-card">
+              <div class="song-badge">Now Playing</div>
+              <h3 id="songTitle">Marvin Gaye</h3>
+              <p class="song-artist" id="songArtist">
+                Charlie Puth ft. Meghan Trainor
+              </p>
+              <p class="song-text">
+                Tekan tombol di bawah ini untuk play / pause lagu. Kamu juga
+                bisa pakai tombol play di bawah foto kalau mau.
+              </p>
+              <button class="btn primary" id="playSongBtn">
+                Play Song ▶️
+              </button>
+              <button class="btn ghost" id="openSongPopupBtn">
+                Pilih Lagu Lucu 🎶
+              </button>
+              <canvas id="heartBeatCanvas" class="heartbeat-canvas"></canvas>
+              <div class="lyrics-box">
+                <div class="lyrics-header">
+                  <span class="lyrics-label">Lirik Manis</span>
+                  <span class="lyrics-song" id="lyricsSongLabel">
+                    Marvin Gaye
+                  </span>
+                </div>
+                <div class="lyrics-lines" id="lyricsLines"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="player-visual">
+            <div class="photo-dash-frame">
+              <img
+                src="assets/photobooth.png"
+                alt="Valentine photobooth"
+              />
+            </div>
+            <p class="player-hint">
+              Tekan <span>Play Song</span> atau tombol play di bawah foto untuk
+              mulai musiknya.
+            </p>
+            <p class="hand-sensor-tip">
+              Gerakkan jari/kursor di area dashboard ini, lihat sensor tangan
+              yang mengikuti gerakanmu.
+            </p>
+            <audio id="bgSong" src="marvin-gaye.mp3" preload="auto"></audio>
+          </div>
+        </div>
+      </section>
+
+      <section class="footer-section">
+        <p>
+          Dibuat dengan penuh cinta, animasi, dan sedikit JavaScript.
+        </p>
+        <p class="footer-small">
+          Siap diupload ke GitHub — cukup push folder ini saja.
+        </p>
+      </section>
+
+      <section class="camera-galaxy" id="cameraGalaxy">
+        <div class="camera-galaxy-inner">
+          <div class="camera-info">
+            <span class="tiny-label">Galaxy Code</span>
+            <h2>Scan Kode Rahasia Kita</h2>
+            <p>
+              Aktifkan kamera, lalu arahkan ke kode (misalnya QR / gambar
+              khusus) yang kamu pilih. Saat kode terbaca, langit akan berubah
+              jadi galaksi penuh hati, saturnus, dan kata
+              <strong>I love you</strong>.
+            </p>
+            <p class="camera-note">
+              Untuk keamanan browser, fitur kamera hanya akan jalan kalau
+              halaman ini dibuka dari <strong>localhost</strong> atau
+              <strong>HTTPS</strong> (misalnya GitHub Pages).
+            </p>
+            <div class="camera-actions">
+              <button class="btn primary" id="startCameraBtn">
+                Aktifkan Kamera 📷
+              </button>
+              <button class="btn ghost" id="stopCameraBtn">
+                Matikan Kamera ✋
+              </button>
+            </div>
+            <p class="camera-status" id="cameraStatus">
+              Kamera belum aktif.
+            </p>
+          </div>
+
+          <div class="camera-view">
+            <div class="camera-frame">
+              <video id="cameraVideo" autoplay playsinline></video>
+              <div class="camera-overlay-box"></div>
+            </div>
+            <canvas id="cameraCanvas" class="camera-canvas" hidden></canvas>
+          </div>
+        </div>
+
+        <div class="galaxy-overlay" id="galaxyOverlay">
+          <div class="galaxy-heart"></div>
+          <div class="galaxy-saturn">
+            <div class="saturn-planet"></div>
+            <div class="saturn-ring"></div>
+          </div>
+          <div class="galaxy-text">I&nbsp;love&nbsp;you</div>
+          <div class="galaxy-stars"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Popup pilih lagu -->
+    <div class="song-popup" id="songPopup" aria-hidden="true">
+      <div class="song-popup-overlay"></div>
+      <div class="song-popup-card" role="dialog" aria-modal="true">
+        <div class="song-popup-header">
+          <h2>Pilih Lagu</h2>
+          <button
+            class="song-popup-close"
+            type="button"
+            id="closeSongPopupBtn"
+            aria-label="Tutup pilihan lagu"
+          >
+            ✕
+          </button>
+        </div>
+        <p class="song-popup-subtitle">
+          Pilih salah satu lagu lucu untuk diputar di dashboard:
+        </p>
+        <div class="song-popup-list">
+          <button
+            class="song-choice"
+            type="button"
+            data-song-src="marvin-gaye.mp3"
+            data-song-title="Marvin Gaye"
+            data-song-artist="Charlie Puth ft. Meghan Trainor"
+          >
+            <span class="song-choice-main">Marvin Gaye</span>
+            <span class="song-choice-sub">Charlie Puth ft. Meghan Trainor</span>
+          </button>
+          <button
+            class="song-choice"
+            type="button"
+            data-song-src="one-million.mp3"
+            data-song-title="One Million"
+            data-song-artist="Special Valentine Remix"
+          >
+            <span class="song-choice-main">One Million</span>
+            <span class="song-choice-sub">Fun upbeat version</span>
+          </button>
+          <button
+            class="song-choice"
+            type="button"
+            data-song-src="lihat-kebunku.mp3"
+            data-song-title="Lihat Kebunku"
+            data-song-artist="Versi Imut Valentine"
+          >
+            <span class="song-choice-main">Lihat Kebunku</span>
+            <span class="song-choice-sub">Lagu anak yang super gemes</span>
+          </button>
+        </div>
+        <p class="song-popup-note">
+          Simpan file audio <strong>one-million.mp3</strong> dan
+          <strong>lihat-kebunku.mp3</strong> di folder yang sama dengan
+          halaman ini supaya lagunya bisa diputar.
+        </p>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
